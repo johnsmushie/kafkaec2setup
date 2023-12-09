@@ -20,6 +20,25 @@ java -version
 Output
 openjdk version "11.0.11" 2021-04-20
 
+# Create kafka user
+* Login as the root user then create a user called kafka, by running the following commands
+```
+sudo adduser kafka
+```
+Enter the password and verify it when prompted
+Add the kafka user to the sudo group
+```
+sudo adduser kafka sudo
+```
+Now login as kafka user and enter the password you gave above
+```
+su -l kafka
+```
+Create another folder called logs in the kafka home directory – this is where the kafka logs will be stored
+```
+mkdir ~/logs
+```
+You should have folders as shown on screen-shot below
 * Create a Downloads folder where you are going to download the kafka binary to
 
 ```
