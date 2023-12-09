@@ -1,5 +1,6 @@
 # Setup Apache Kafka on EC2
-# Install prerequisites for Kafka
+<details>
+<summary>Install prerequisites for Kafka</summary>summary>
 * Install java
 ```
 sudo apt update
@@ -19,7 +20,7 @@ java -version
 ```
 Output
 openjdk version "11.0.11" 2021-04-20
-
+<details>
 # Create kafka user
 * Login as the root user then create a user called kafka, by running the following commands
 ```
