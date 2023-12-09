@@ -154,3 +154,29 @@ sudo systemctl start kafka
 ```
 sudo systemctl status kafka
 ```
+# Enable the services 
+* Enabling services ensures that they will always start even on system reboot
+```
+sudo systemctl enable zookeeper
+```
+
+Output
+Created symlink /etc/systemd/system/multi-user.target.wants/zookeeper.service → /etc/systemd/system/zookeeper.service.
+
+```
+sudo systemctl enable kafka
+```
+Output
+Created symlink /etc/systemd/system/multi-user.target.wants/kafka.service → /etc/systemd/system/kafka.service.
+
+# Test that you can Produce and consume Topics
+
+* Change to home directory
+```
+cd
+```
+Run command to test creating a test topic
+```
+~/kafka/bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic testTopic
+```
+Done
