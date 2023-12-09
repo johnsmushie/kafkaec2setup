@@ -1,4 +1,25 @@
 # Setup Apache Kafka on EC2
+#Install prerequisites for Kafka
+*Install java
+```
+sudo apt update
+```
+Check java version
+```
+java –version
+```
+Output
+Command 'java' not found, but can be installed with:
+```
+sudo apt install default-jre
+```
+Check the java version again
+```
+java -version
+```
+Output
+openjdk version "11.0.11" 2021-04-20
+
 * Create a Downloads folder where you are going to download the kafka binary to
 
 ```
