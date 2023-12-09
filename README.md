@@ -73,7 +73,7 @@ Extract the kafka binary by running the command below
 ```
 tar -xvzf ~/Downloads/kafka.tgz --strip 1
 ```
-Configure the kafka Server
+# Configure the kafka Server
 ```
 nano ~/kafka/config/server.properties
 ```
