@@ -171,11 +171,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/kafka.service → /e
 
 # Test that you can Produce and consume Topics
 
-* Change to home directory
-```
-cd
-```
-Run command to test creating a test topic
+* Run command to test creating a test topic
 ```
 ~/kafka/bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic testTopic
 ```
