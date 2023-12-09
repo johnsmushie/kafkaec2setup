@@ -119,7 +119,7 @@ WantedBy=multi-user.target
 sudo nano /etc/systemd/system/kafka.service
 ```
 * Copy and paste below code block then save and close the file
-````
+```
 [Unit]
 Requires=zookeeper.service
 After=zookeeper.service
