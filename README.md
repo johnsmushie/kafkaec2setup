@@ -1,6 +1,6 @@
 # Setup Apache Kafka on EC2
 <details>
-<summary>Install prerequisites for Kafka</summary>summary>
+<summary>Install prerequisites for Kafka</summary>
 * Install java
 ```
 sudo apt update
