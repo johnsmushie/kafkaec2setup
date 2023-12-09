@@ -1,4 +1,4 @@
-# Setup Apache Kafka on EC2
+# Setup Apache Kafka on AWS EC2
 # Install prerequisites for Kafka
 * Install java
 ```
