@@ -73,4 +73,18 @@ Extract the kafka binary by running the command below
 ```
 tar -xvzf ~/Downloads/kafka.tgz --strip 1
 ```
+Configure the kafka Server
+```
+nano ~/kafka/config/server.properties
+```
+Add the following settings at the end of the file to enable topic deletion and automatic topic creation
+```
+delete.topic.enable = true
+auto.create.topics.enable = true
+```
+Find the log.dirs entry (should be closer to the top) and change it to the following
 
+```
+log.dirs=/home/kafka/logs
+```
+Save and close the file by pressing Ctrl+S and Ctrl+X
