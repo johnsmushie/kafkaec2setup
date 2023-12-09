@@ -88,3 +88,69 @@ Find the log.dirs entry (should be closer to the top) and change it to the follo
 log.dirs=/home/kafka/logs
 ```
 Save and close the file by pressing Ctrl+S and Ctrl+X
+# Create the systemd unit files to Start Services
+
+* Zookeeper Service Unit file
+Run the below command to create zookeeper service file
+```
+sudo nano /etc/systemd/system/zookeeper.service
+```
+* Copy and paste below code block then save and close the file
+```
+[Unit]
+Requires=zookeeper.service
+After=zookeeper.service
+
+[Service]
+Type=simple
+User=kafka
+ExecStart=/bin/sh -c '/home/kafka/kafka/bin/kafka-server-start.sh /home/kafka/kafka/config/server.properties > /home/kafka/kafka/kafka.log 2>&1'
+ExecStop=/home/kafka/kafka/bin/kafka-server-stop.sh
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
+```
+
+* Kafka Service Unit file
+* Run the below command to create kafka service file
+
+```
+sudo nano /etc/systemd/system/kafka.service
+```
+* Copy and paste below code block then save and close the file
+````
+[Unit]
+Requires=zookeeper.service
+After=zookeeper.service
+
+[Service]
+Type=simple
+User=kafka
+ExecStart=/bin/sh -c '/home/kafka/kafka/bin/kafka-server-start.sh /home/kafka/kafka/config/server.properties > /home/kafka/kafka/kafka.log 2>&1'
+ExecStop=/home/kafka/kafka/bin/kafka-server-stop.sh
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
+```
+# Start the zookeeper service
+
+* Run the command below to start zookeeper
+```
+sudo systemctl start zookeeper
+```
+* Check status by running the command below
+```
+sudo systemctl status zookeeper
+```
+
+# Start the kafka service
+* Run the command below to start zookeeper
+```
+sudo systemctl start kafka
+```
+* Check status by running the command below
+```
+sudo systemctl status kafka
+```
