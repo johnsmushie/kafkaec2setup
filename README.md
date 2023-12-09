@@ -51,7 +51,7 @@ mkdir ~/Downloads
 cd ~/Downloads
 ```
 
-* Get the binaries by running the wget command below (and pasting the link you copied from the apache,org website)
+# Get the Kafka binaries 
 
 ```
 wget https://downloads.apache.org/kafka/3.6.1/kafka_2.13-3.6.1.tgz
