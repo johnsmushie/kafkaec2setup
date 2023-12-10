@@ -98,14 +98,14 @@ sudo nano /etc/systemd/system/zookeeper.service
 * Copy and paste below code block then save and close the file
 ```
 [Unit]
-Requires=zookeeper.service
-After=zookeeper.service
+Requires=network.target remote-fs.target
+After=network.target remote-fs.target
 
 [Service]
 Type=simple
 User=kafka
-ExecStart=/bin/sh -c '/home/kafka/kafka/bin/kafka-server-start.sh /home/kafka/kafka/config/server.properties > /home/kafka/kafka/kafka.log 2>&1'
-ExecStop=/home/kafka/kafka/bin/kafka-server-stop.sh
+ExecStart=/home/kafka/kafka/bin/zookeeper-server-start.sh /home/kafka/kafka/config/zookeeper.properties
+ExecStop=/home/kafka/kafka/bin/zookeeper-server-stop.sh
 Restart=on-abnormal
 
 [Install]
