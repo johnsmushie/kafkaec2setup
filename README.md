@@ -129,7 +129,7 @@ sudo systemctl start zookeeper
 ```
 sudo systemctl status zookeeper
 ```
-# Start the kafka service- <br /> 
+# Start the kafka service <br /> 
 Run the command below to start zookeeper
 ```
 sudo systemctl start kafka
