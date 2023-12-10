@@ -38,38 +38,27 @@ Create another folder called logs in the kafka home directory – this is where 
 ```
 mkdir ~/logs
 ```
-
 * Create a Downloads folder where you are going to download the kafka binary to
-
 ```
 mkdir ~/Downloads
 ```
-
 * Change to the Downloads folder
-
 ```
 cd ~/Downloads
 ```
-
 # Get the Kafka binaries 
-
 ```
 wget https://downloads.apache.org/kafka/3.6.1/kafka_2.13-3.6.1.tgz
 ```
-
 Rename the downloaded kafka binary by using the following command
-
 ```
 mv kafka_2.13-3.6.1.tgz kafka.tgz
 ```
-
 Create another folder called kafka and change to that folder using the command below
 ```
 mkdir ~/kafka && cd ~/kafka
 ```
-
 Extract the kafka binary by running the command below
-
 ```
 tar -xvzf ~/Downloads/kafka.tgz --strip 1
 ```
@@ -83,14 +72,13 @@ delete.topic.enable = true
 auto.create.topics.enable = true
 ```
 Find the log.dirs entry (should be closer to the top) and change it to the following
-
 ```
 log.dirs=/home/kafka/logs
 ```
 Save and close the file by pressing Ctrl+S and Ctrl+X
 # Create the systemd unit files to Start Services
 
-* Zookeeper Service Unit file
+* Zookeeper Service Unit file <br /> 
 Run the below command to create zookeeper service file
 ```
 sudo nano /etc/systemd/system/zookeeper.service
@@ -111,10 +99,8 @@ Restart=on-abnormal
 [Install]
 WantedBy=multi-user.target
 ```
-
-* Kafka Service Unit file
-* Run the below command to create kafka service file
-
+* Kafka Service Unit file <br /> 
+Run the below command to create kafka service file
 ```
 sudo nano /etc/systemd/system/kafka.service
 ```
@@ -134,9 +120,8 @@ Restart=on-abnormal
 [Install]
 WantedBy=multi-user.target
 ```
-# Start the zookeeper service
-
-* Run the command below to start zookeeper
+# Start the zookeeper service <br /> 
+Run the command below to start zookeeper
 ```
 sudo systemctl start zookeeper
 ```
@@ -144,9 +129,8 @@ sudo systemctl start zookeeper
 ```
 sudo systemctl status zookeeper
 ```
-
-# Start the kafka service
-* Run the command below to start zookeeper
+# Start the kafka service- <br /> 
+Run the command below to start zookeeper
 ```
 sudo systemctl start kafka
 ```
@@ -154,32 +138,27 @@ sudo systemctl start kafka
 ```
 sudo systemctl status kafka
 ```
-# Enable the services 
-* Enabling services ensures that they will always start even on system reboot
+# Enable the services <br />  
+Enabling services ensures that they will always start even on system reboot
 ```
 sudo systemctl enable zookeeper
 ```
-
-Output
+Output <br /> 
 Created symlink /etc/systemd/system/multi-user.target.wants/zookeeper.service → /etc/systemd/system/zookeeper.service.
-
 ```
 sudo systemctl enable kafka
 ```
-Output
+Output <br /> 
 Created symlink /etc/systemd/system/multi-user.target.wants/kafka.service → /etc/systemd/system/kafka.service.
-
 # Test that you can Produce and consume Topics
-
 * Run command to test creating a test topic
 ```
 ~/kafka/bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic testTopic
 ```
-* Output
+* Output<br /> 
 Created topic testTopic.
-* To consume messages from a topic you will use a command like the following
-
-  ```
-  ~/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic testTopic --from-beginning
-  ```
-  ### Done
+#### To consume messages from a topic you will use a command like the following
+```
+~/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic testTopic --from-beginning
+```
+### Done
