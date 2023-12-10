@@ -175,4 +175,11 @@ Created symlink /etc/systemd/system/multi-user.target.wants/kafka.service → /e
 ```
 ~/kafka/bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic testTopic
 ```
-Done
+* Output
+Created topic testTopic.
+* To consume messages from a topic you will use a command like the following
+
+  ```
+  ~/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic testTopic --from-beginning
+  ```
+  ### Done
